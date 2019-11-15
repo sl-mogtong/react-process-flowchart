@@ -72,7 +72,18 @@ export default class Column extends React.PureComponent<PropsT> {
 
         // Decision Step
         if (tile.type === encodedNodeType.fork) {
-            return <DecisionStep />;
+            return (
+                <DecisionStep
+                    workflowStepUid={tile.id}
+                    workflowStepName={tile.name}
+                    workflowUid={tile.workflowUid}
+                    nextSteps={tile.nextSteps}
+                    displayWarning={tile.displayWarning}
+                    shouldHighlight={ 
+                        true
+                    }
+            />
+            ) 
         }
 
         // WorkflowStep

@@ -14,7 +14,33 @@ describe("DecisionStep Spec", () => {
     let decisionStep: any;
 
     beforeEach(() => {
-        decisionStep = shallow(<DecisionStep />);
+        decisionStep = shallow(<DecisionStep
+          workflowStepUid={"node-start"}
+          workflowStepName={`${encodedNodeType[3].slice(0, 1)}1`}
+          workflowUid={"wf-aa"}
+          nextSteps={[
+            {
+              workflowStepUid: "6473fda8a603",
+              workflowStepName: `${encodedNodeType[3].slice(0, 1)}1`,
+              workflowStepType: encodedNodeType[3],
+              workflowStepOrder: 2,
+              actions: [
+                  {
+                      primary: false,
+                      actionType: "DECISION",
+                      nextWorkflowStepUid: "64735f9f64c8"
+                  },
+                  {
+                      primary: true,
+                      actionType: "DECISION",
+                      nextWorkflowStepUid: "647384536514"
+                  }
+              ]
+            }
+          ]}
+          displayWarning={false}
+          shouldHighlight={true}
+           />);
     });
 
     describe("render", () => {

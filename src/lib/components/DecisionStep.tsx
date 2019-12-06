@@ -18,7 +18,7 @@ export const WarningIcon = () => (
     <div className={styles.iconContainerWarning}>
         <ExclamationIcon />
     </div>
-)
+);
 
 interface DecisionStepProps {
     workflowStepUid: string;
@@ -27,14 +27,14 @@ interface DecisionStepProps {
     displayWarning?: ReactNode;
     nextSteps?: WorkflowStepT[];
     shouldHighlight: boolean;
-} 
+}
 
 
 const DecisionStep = ({
     workflowStepUid, workflowStepName, workflowUid,
     displayWarning, nextSteps, shouldHighlight }: DecisionStepProps
 ) => {
-    const { 
+    const {
         theme, options
      } = workflowStepConfig[encodedNodeType.fork];
 
@@ -51,15 +51,16 @@ const DecisionStep = ({
             <Dropdown
                 closeOnClick={false}
                 component={WorkflowStepEditMenu}
-                {...editMenuProps} 
+                {...editMenuProps}
             >
             <div className={classNames(styles.diamond, styles.flexContainer, styles[`theme${theme}`])}>
                 <Tooltip
                     placement="top"
-                    tooltipContent={displayWarning || workflowStepName}
-            >
-                <DiamondIcon />
-            </Tooltip>
+                    tooltipContent={displayWarning ? `${displayWarning} - ${workflowStepName}` : workflowStepName}
+                >
+                  {displayWarning ? [<WarningIcon />, <DiamondIcon />] : <DiamondIcon />}
+
+              </Tooltip>
             </div>
             </Dropdown>
         </div>

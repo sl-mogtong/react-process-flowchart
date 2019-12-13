@@ -228,30 +228,24 @@ storiesOf("WorkflowVis", module)
     <div
       style={{marginLeft: -20}}
       className={classNames(styles.flowchart, storyBoookStyles.storybookWrapper, styles.flowchartContainer)}>
-      <div
-        style={{marginLeft: -20}}
-        className={classNames(styles.flowchart, storyBoookStyles.storybookWrapper, styles.flowchartContainer)}>
-        <WorkflowVis
-            matrix={matrixAA}
-            workflowVisData={workflowVisData}
-            editMode={boolean("Edit Button", false)}
-            addNodeParams={noop}
-        />
+      <WorkflowVis
+          matrix={matrixAA}
+          workflowVisData={workflowVisData}
+          editMode={boolean("Edit Button", false)}
+          addNodeParams={noop}
+      />
     </div>
   ))
   .add("Forked", () => (
     <div
       style={{marginLeft: -20}}
       className={classNames(styles.flowchart, storyBoookStyles.storybookWrapper, styles.flowchartContainer)}>
-      <div
-        style={{marginLeft: -20}}
-        className={classNames(styles.flowchart, storyBoookStyles.storybookWrapper, styles.flowchartContainer)}>
-        <WorkflowVis
-            matrix={matrixAA}
-            workflowVisData={workflowVisData}
-            editMode={boolean("Edit Button", false)}
-            addNodeParams={noop}
-        />
+      <WorkflowVis
+          matrix={matrixAA}
+          workflowVisData={workflowVisData}
+          editMode={boolean("Edit Button", false)}
+          addNodeParams={noop}
+      />
     </div>
   ));
 

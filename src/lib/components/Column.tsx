@@ -79,11 +79,11 @@ export default class Column extends React.PureComponent<PropsT> {
                     workflowUid={tile.workflowUid}
                     nextSteps={tile.nextSteps}
                     displayWarning={tile.displayWarning}
-                    shouldHighlight={ 
+                    shouldHighlight={
                         true
                     }
             />
-            ) 
+            )
         }
 
         // WorkflowStep

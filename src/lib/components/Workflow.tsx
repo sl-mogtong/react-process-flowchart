@@ -13,6 +13,7 @@ import { WorkflowStepT } from "../../config";
 
 interface StateT {
     editMode: boolean;
+    editButtonExists: boolean;
 }
 
 interface WorkflowT {
@@ -23,13 +24,15 @@ interface WorkflowT {
 
 interface PropsT {
     workflow: WorkflowT;
+    editMode?: boolean;
 }
 
 export default class Workflow extends React.PureComponent<PropsT, StateT> {
     constructor(props: PropsT) {
         super(props);
         this.state = {
-            editMode: false
+            editMode: false,
+            editButtonExists: true
         };
         this.boundToggleEditMode = this.toggleEditMode.bind(this);
     }
@@ -41,6 +44,11 @@ export default class Workflow extends React.PureComponent<PropsT, StateT> {
         this.setState({ editMode: !editMode });
     }
 
+    toggleEditButton() {
+        const { editButtonExists } = this.state;
+        this.setState({ editButtonExists: !editButtonExists });
+    }
+
 
     render() {
         const { workflow } = this.props;
@@ -50,14 +58,23 @@ export default class Workflow extends React.PureComponent<PropsT, StateT> {
         const toggleEditModeLabel = editMode ? "Done" : "Edit";
         const toggleEditClassName = editMode ? "toggleEditHighlight" : "toggleEdit";
 
+        const {editButtonExists} = this.state;
+        const toggleEditButton = editButtonExists ? true : false;
+
         return (
             <div>
+            {
+              toggleEditButton ? (
                 <div className={style.flexContainer}>
                     <h1 style={{ maxWidth: 200 }}>{workflowName}</h1>
                     <button type="button" className={style[toggleEditClassName]} onClick={this.boundToggleEditMode}>
                         {toggleEditModeLabel}
                     </button>
                 </div>
+              ) : (
+                ""
+              )
+            }
 
                 <WorkflowVisContainer
                     workflowUid={workflowUid}

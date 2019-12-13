@@ -9,7 +9,7 @@ import { text, boolean, select } from '@storybook/addon-knobs';
 import WorkflowStep from "../src/lib/components/WorkflowStep";
 
 // Config
-import { 
+import {
   encodedNodeType, ThemeT,
   messages
 } from "../src/config";
@@ -41,7 +41,7 @@ const storyWrapperClass = classNames(
 storiesOf("WorkflowStep", module)
   .add("WorkflowStep", () => (
     <div className={storyWrapperClass}>
-      <WorkflowStep 
+      <WorkflowStep
         name={text("name", "Translation")}
         type={select("Node Type", nodeTypeOptions, encodedNodeType[0])}
         workflowUid="foo"

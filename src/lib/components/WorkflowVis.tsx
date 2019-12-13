@@ -1,5 +1,5 @@
 // Libraries
-import React from "react";
+import React, { ReactNode } from "react";
 
 // Styles
 import style from "../styles/workflowVis.module.css";

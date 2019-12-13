@@ -57,119 +57,155 @@ const workflowVisData = {
     workflowStepNodes: {
         "node-start": {
             id: "node-start",
+            workflowUid: "0123",
             name: encodedNodeType.start,
             type: encodedNodeType.start,
+            isDisabled: false,
             workflowStepOrder: 0,
             nextNodes: [
                 { id: "node-fork", primary: true }
             ],
+            nextSteps: [],
             prevSteps: []
         },
         "node-fork": {
             id: "node-fork",
+            workflowUid: "0123",
             name: encodedNodeType.fork,
             type: encodedNodeType.fork,
+            isDisabled: false,
             workflowStepOrder: 1,
             nextNodes: [
                 { id: "node-1A", primary: true },
                 { id: "node-2A", primary: false }
             ],
+            nextSteps: [],
             prevSteps: []
         },
         "node-1A": {
             id: "node-1A",
+            workflowUid: "0123",
             name: `${encodedNodeType[2].toLocaleLowerCase()}1`,
             type: encodedNodeType[2],
+            isDisabled: false,
             workflowStepOrder: 2,
             nextNodes: [
                 { id: "node-1B", primary: true }
             ],
+            nextSteps: [],
             prevSteps: []
         },
         "node-2A": {
             id: "node-2A",
+            workflowUid: "0123",
             name: `${encodedNodeType[2].toLocaleLowerCase()}2`,
             type: encodedNodeType[2],
+            isDisabled: false,
             workflowStepOrder: 2,
             nextNodes: [
                 { id: "node-1B", primary: true }
             ],
+            nextSteps: [],
             prevSteps: []
         },
         "node-3A": {
             id: "node-3A",
+            workflowUid: "0123",
             name: `${encodedNodeType[2].toLocaleLowerCase()}3`,
             type: encodedNodeType[2],
+            isDisabled: false,
             workflowStepOrder: 2,
             nextNodes: [
                 { id: "node-1B", primary: true }
             ],
+            nextSteps: [],
             prevSteps: []
         },
         "node-4A": {
             id: "node-4A",
+            workflowUid: "0123",
             name: `${encodedNodeType[2].toLocaleLowerCase()}4`,
             type: encodedNodeType[2],
+            isDisabled: false,
             workflowStepOrder: 2,
             nextNodes: [
                 { id: "node-1B", primary: true }
             ],
+            nextSteps: [],
             prevSteps: []
         },
         "node-1B": {
             id: "node-1B",
+            workflowUid: "0123",
             name: `${encodedNodeType[3].toLocaleLowerCase()}1`,
             type: encodedNodeType[3],
+            isDisabled: false,
             workflowStepOrder: 3,
             nextNodes: [
                 { id: "node-1C", primary: true }
             ],
+            nextSteps: [],
             prevSteps: []
         },
         "node-1C": {
             id: "node-1C",
+            workflowUid: "0123",
             name: `${encodedNodeType[4].toLocaleLowerCase()}2`,
             type: encodedNodeType[4],
+            isDisabled: false,
             workflowStepOrder: 4,
             nextNodes: [
                 { id: "node-finish", primary: true }
             ],
+            nextSteps: [],
             prevSteps: []
         },
         "node-finish": {
             id: "node-finish",
+            workflowUid: "0123",
             name: encodedNodeType.finish.toLocaleLowerCase(),
             type: encodedNodeType.finish,
+            isDisabled: false,
             workflowStepOrder: 5,
             nextNodes: [],
+            nextSteps: [],
             prevSteps: []
         },
         "m-long": {
             id: "m-long",
+            workflowUid: "0123",
             name: "MMMMMMMMMMMMMM", // 14 chars
             type: encodedNodeType[4],
+            isDisabled: false,
             workflowStepOrder: 1,
             nextNodes: [
                 { id: "node-fork", primary: true }
             ],
+            nextSteps: [],
             prevSteps: []
         },
         "a-long": {
             id: "a-long",
+            workflowUid: "0123",
             name: "AAA AAAAAAAAAAA", // 14 chars
             type: encodedNodeType[4],
+            isDisabled: false,
             workflowStepOrder: 2,
             nextNodes: [
                 { id: "i-long", primary: true }
             ],
+            nextSteps: [],
             prevSteps: []
         },
         "i-long": {
             id: "i-long",
+            workflowUid: "0123",
             name: "iiiiiiiiiiiiii", // 14 chars
             type: encodedNodeType[4],
+            isDisabled: false,
             workflowStepOrder: 3,
             nextNodes: [],
+            nextSteps: [],
             prevSteps: []
         }
     }
@@ -192,14 +228,30 @@ storiesOf("WorkflowVis", module)
     <div
       style={{marginLeft: -20}}
       className={classNames(styles.flowchart, storyBoookStyles.storybookWrapper, styles.flowchartContainer)}>
-
+      <div
+        style={{marginLeft: -20}}
+        className={classNames(styles.flowchart, storyBoookStyles.storybookWrapper, styles.flowchartContainer)}>
+        <WorkflowVis
+            matrix={matrixAA}
+            workflowVisData={workflowVisData}
+            editMode={boolean("Edit Button", false)}
+            addNodeParams={noop}
+        />
     </div>
   ))
   .add("Forked", () => (
     <div
       style={{marginLeft: -20}}
       className={classNames(styles.flowchart, storyBoookStyles.storybookWrapper, styles.flowchartContainer)}>
-
+      <div
+        style={{marginLeft: -20}}
+        className={classNames(styles.flowchart, storyBoookStyles.storybookWrapper, styles.flowchartContainer)}>
+        <WorkflowVis
+            matrix={matrixAA}
+            workflowVisData={workflowVisData}
+            editMode={boolean("Edit Button", false)}
+            addNodeParams={noop}
+        />
     </div>
   ));
 
